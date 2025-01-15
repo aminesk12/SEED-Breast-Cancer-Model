@@ -10,12 +10,19 @@ def load_files():
     """
     Load the model and its info from disk.
     """
-    model_dir = "./model"
+    """model_dir = "./model"
     model_file = os.path.join(model_dir, "best_pipeline.pkl")
     model_info_file = os.path.join(model_dir, "model_info.txt")
     categorical_columns = os.path.join(model_dir, " categorical_columns.pkl")
     feature_order = os.path.join(model_dir, "feature_order.pkl")
-
+    """
+    model_dir = "./model"
+    model_file = os.path.join(model_dir, "best_pipeline.pkl")
+    model_info_file = os.path.join(model_dir, "model_info.txt")
+    categorical_columns = os.path.join(model_dir, "categorical_columns.pkl")
+    feature_order = os.path.join(model_dir, "feature_order.pkl")
+    label_encoders= os.path.join(model_dir, "label_encoders.pkl")
+    
     # Ensure necessary files exist
     for file in [model_file, model_info_file]:
         if not os.path.exists(file):
