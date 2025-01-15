@@ -12,15 +12,12 @@
         <p class="text-muted text-center">{{ model_info }}</p>
         <form id="predictionForm" method="post" action="/predict" class="mt-4">
             <div class="row">
-                <!-- Numeric Fields -->
                 {% for col in numeric_columns %}
                 <div class="mb-3 col-md-6">
                     <label for="{{ col }}" class="form-label">{{ col }}</label>
                     <input type="number" step="any" class="form-control" id="{{ col }}" name="{{ col }}" required>
                 </div>
                 {% endfor %}
-
-                <!-- Categorical Fields -->
                 {% for field, options in form_options.items() %}
                 <div class="mb-3 col-md-6">
                     <label for="{{ field }}" class="form-label">{{ field }}</label>
@@ -37,27 +34,20 @@
                 <button type="submit" class="btn btn-primary">Predict</button>
             </div>
         </form>
-
-        <!-- Result Section -->
         <div id="result" class="mt-5"></div>
     </div>
-
     <script>
         const form = document.getElementById('predictionForm');
         const resultDiv = document.getElementById('result');
-
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             resultDiv.innerHTML = '<p class="text-center text-info">Processing...</p>';
-            
             const formData = new FormData(form);
             const response = await fetch(form.action, {
                 method: 'POST',
                 body: formData,
             });
-
             const result = await response.json();
-
             if (response.ok) {
                 resultDiv.innerHTML = `
                     <div class="alert alert-success">
