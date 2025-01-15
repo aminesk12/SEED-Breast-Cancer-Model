@@ -1,1 +1,1 @@
-Best Model: Random Forest
+Best Model: Logistic Regression
