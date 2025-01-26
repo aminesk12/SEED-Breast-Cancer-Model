@@ -3,12 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction App</title>
+    <title>Breast Cancer Prediction App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('images/cancer.jpg');       
+             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: rosybrown;
+        }
+        .container {
+            background: pink; /* Couche semi-transparente pour améliorer la lisibilité */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+        h1 {
+    color: #ff4081; /* Une couleur vive (rose) */
+    font-size: 3rem; /* Taille de la police */
+    font-weight: bold; /* Poids pour une apparence plus marquée */
+    text-align: center; /* Centrer le texte */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Ombre portée pour donner de la profondeur */
+    background: linear-gradient(to right, #ff4081, #ff80ab); /* Dégradé de couleurs */
+    -webkit-background-clip: text; /* Découper le dégradé dans le texte */
+    -webkit-text-fill-color: transparent; /* Rendre l'intérieur transparent pour voir le dégradé */
+    margin-bottom: 20px; /* Espacement inférieur pour un peu d'air */
+    letter-spacing: 1px; /* Espacement entre les lettres */
+    text-transform: uppercase; /* Met le texte en majuscules pour un effet fort */
+}
+        .form-control, .form-select {
+            background: rgba(183, 166, 166, 0.9);
+            border: 1px solid #010407;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 10px rgba(5, 0, 0, 0.7);
+        }
+        .btn-primary {
+            background-color: black;
+            border-color: pink;
+            box-shadow: 0 4px 10px rgba(1, 16, 33, 0.5);
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .alert {
+            border-radius: 10px;
+            font-size: 1.1rem;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Prediction App</h1>
+        <h1 class="text-center">Breast Cancer Prediction</h1>
         <p class="text-muted text-center">{{ model_info }}</p>
         <form id="predictionForm" method="post" action="/predict" class="mt-4">
             <div class="row">
